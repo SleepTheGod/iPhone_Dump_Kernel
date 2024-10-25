@@ -1,0 +1,114 @@
+Apple iOS Kernel Panic Advanced Diagnostic Log
+====================================================================
+Timestamp                           : 2024-10-25 14:37:58 UTC
+Panic Type                          : Kernel Data Abort (TLB - Kernel Virtual Memory)
+Faulting Address                    : 0x0000000000000042
+Affected Process                    : SpringBoard (PID: 92)
+System Uptime                       : 16h 32m 10s
+
+Device and System Information
+--------------------------------------------------------------------
+iOS Version                         : 15.0
+Device Model                        : iPhone 12 Pro (iPhone13,3)
+Kernel Version                      : Darwin Kernel Version 20.3.0: Tue Feb 2 2024, root:xnu-7195.81.3~1/RELEASE_ARM64_T8101
+Kernel UUID                         : ABCD-1234-EF56-7890
+CPU Architecture                    : ARM64
+Battery Level                       : 75%
+Available Storage                   : 48 GB / 128 GB
+Total RAM                           : 6 GB
+Available RAM                       : 3.2 GB
+
+Thread Backtrace (Faulty Thread)
+--------------------------------------------------------------------
+0xffffff8012345678 : panic+0x158
+0xffffff8012345678 : kernel_task+0x140
+0xffffff8012345678 : cpu_exception+0x190
+0xffffff8012345678 : TLB_fault_exception+0xf8
+0xffffff8012345678 : mach_msg_receive+0x124
+0xffffff8012345678 : user_interaction_task+0x240
+0xffffff8012345678 : 0xfffffff00ab54321 - Last known kernel function
+
+Kernel Zone Allocation and Memory Details
+--------------------------------------------------------------------
+Zone Allocation Summary:
+   Kernel Map Zone                  : 34 MB
+   Active Pages                     : 320,000 (80% utilization)
+   Free Pages                       : 68,000 (20% available)
+   Compressed Pages                 : 9,245
+   Page Faults                      : 1200 (last 10 minutes)
+
+Zone Allocation Detail:
+   Zone Name                        : Kernel_map
+   Zone Size                        : 4096 KB
+   Allocations                      : 62,324 objects
+   In Use                           : 35,678 objects (57.3% utilized)
+
+Memory Snapshot:
+   Virtual Memory Used              : 1.5 GB / 4 GB
+   Wired Memory                     : 85 MB
+   Page Outs                        : 110 MB in last hour
+
+CPU Metrics
+--------------------------------------------------------------------
+CPU Load Averages                   : 1 min: 34%, 5 min: 29%, 15 min: 26%
+Active Threads                      : 187
+Number of CPU Cores                 : 6 (4 efficiency, 2 performance)
+Core Temperature                    : Average 42°C, Peak 54°C
+Scheduler Activity                  : 12% I/O, 18% User, 70% Idle
+
+Networking State at Time of Panic
+--------------------------------------------------------------------
+en0: Ethernet Status
+    IP Address                      : 192.168.1.42
+    MAC Address                     : a1:b2:c3:d4:e5:f6
+    Connection Speed                : 1000 Mbps (full-duplex)
+    TX Packets                       : 105,000 (2% dropped)
+    RX Packets                       : 98,450 (1.5% dropped)
+
+lo0: Loopback Interface
+    IP Address                      : 127.0.0.1
+    Connection State                : Active
+    TX Packets                      : 1,204,600
+    RX Packets                      : 1,200,500
+
+System Logs Leading to Panic
+--------------------------------------------------------------------
+- [INFO]  2024-10-25 14:35:20 : Background update initiated for SpringBoard.
+- [WARN]  2024-10-25 14:36:05 : Memory usage nearing threshold (85%).
+- [ERROR] 2024-10-25 14:37:05 : TLB exception at 0x0000000000000042 - initiating kernel panic.
+- [INFO]  2024-10-25 14:37:58 : Collecting diagnostic data post-panic.
+
+Faulted Application State
+--------------------------------------------------------------------
+Application Name                    : SpringBoard
+Application PID                     : 92
+Application RAM Usage               : 450 MB
+Application State                   : Foreground
+Number of Open File Descriptors     : 68
+Associated Threads                  : 16
+Last API Call Before Panic          : mach_msg_receive
+
+Resource and I/O Status
+--------------------------------------------------------------------
+I/O Threads                         : 15 active
+Disk Activity Rate                  : 112 KB/s read, 89 KB/s write
+File System Summary:
+   File System                      : apfs
+   Used Space                       : 64.2 GB
+   Free Space                       : 48.8 GB
+   File Descriptors in Use          : 67 / 256
+   Inodes Available                 : 94%
+
+Detailed Mutex Information
+--------------------------------------------------------------------
+Number of Mutexes Active            : 25
+High Contention Mutexes             : 5 (last 30 seconds)
+Mutex Names and Addresses:
+   mutex_kernel_task                : 0xfffffff002ff9d2c
+   mutex_io_scheduler               : 0xfffffff002f9cabc
+   mutex_vm_manager                 : 0xfffffff00301a345
+   mutex_thread_dispatcher          : 0xfffffff00304c789
+
+End of Log
+--------------------------------------------------------------------
+Diagnostic Data Saved To            : /home/user/ios_advanced_kernel_panic_log.txt
