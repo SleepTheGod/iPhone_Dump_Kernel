@@ -38,3 +38,114 @@ Kernel Panic Information - Oct 25, 2024
 iOS Version - 15.0 Device Model - x86_64 Kernel Panic String - The kernel panic string (if any) will be logged here Network Status - en0 - flags=8863<UP,BROADCAST,RUNNING,SIMPLEX,MULTICAST> mtu 1500 ether 01:23:45:67:89
 inet 192.168.1.2 netmask 0xffffff00 broadcast 192.168.1.255
 Log saved to /home/user/kernel_panic_log.txt
+
+
+
+
+Example of output
+
+Kernel Panic Diagnostic Log - Oct 25, 2024
+===========================================
+Timestamp: 2024-10-25 14:35:22 UTC
+Device Information:
+-------------------------------------------
+  iOS Version           : 15.0
+  Device Model          : iPhone12,1 (iPhone 11)
+  Kernel Version        : Darwin Kernel Version 20.3.0: Mon Jan 18 23:14:12 PST 2024; root:xnu-7195.81.3~1/RELEASE_ARM64_T8101
+  CPU Architecture      : ARM64
+
+Kernel Panic Summary:
+-------------------------------------------
+  Panic Location        : cpu 0 caller 0xfffffff00abcdef0
+  Panic Type            : Kernel data abort
+  Exception Class       : Data Abort (TLB - Kernel Virtual Memory)
+  Faulting Address      : 0x0000000000000042
+  Affected Process      : backboardd
+  ESR (Exception Syndrome Register) : 0x96000045
+
+Backtrace of Faulty Thread:
+-------------------------------------------
+0xffffff8012345678 : panic+0x158
+0xffffff8012345678 : vm_fault+0x124
+0xffffff8012345678 : translation_fault+0xf8
+0xffffff8012345678 : page_fault+0x32
+0xffffff8012345678 : kernel_pmap_enter+0x220
+0xffffff8012345678 : vfs_context_proc+0x2f4
+0xffffff8012345678 : kern_return_t mach_msg_receive+0x104
+0xffffff8012345678 : 0xfffffff00f1ab3d1 - Kernel function
+
+System Metrics at Time of Panic:
+-------------------------------------------
+  CPU Load (1 min)      : 27%
+  CPU Load (5 min)      : 24%
+  Total RAM             : 4 GB
+  Used RAM              : 2.1 GB
+  Free RAM              : 1.9 GB
+  Disk Usage            : 8.7 GB used / 64 GB total
+  Swap Usage            : 512 MB / 1 GB
+
+Network Diagnostics:
+-------------------------------------------
+en0: flags=8863<UP,BROADCAST,RUNNING,SIMPLEX,MULTICAST> mtu 1500
+    ether a1:b2:c3:d4:e5:f6 
+    inet 192.168.1.20 netmask 0xffffff00 broadcast 192.168.1.255
+    inet6 fe80::a1b2:c3ff:fe4d:e5f6%en0 prefixlen 64 scopeid 0x4
+    media: autoselect (1000baseT <full-duplex>)
+    status: active
+lo0: flags=8049<UP,LOOPBACK,RUNNING,MULTICAST> mtu 16384
+    inet 127.0.0.1 netmask 0xff000000
+
+Memory Dump Snapshot:
+-------------------------------------------
+  Physical Memory:
+    Page size          : 4096 bytes
+    Pages in use       : 544,257
+    Free pages         : 121,743
+    Pages wired        : 101,205
+    Compressed pages   : 4,872
+    Active pages       : 342,000
+    Inactive pages     : 80,300
+    Pageouts           : 812
+
+  Virtual Memory:
+    Swap used          : 512 MB / 1 GB
+    Swap file count    : 1
+    VM objects         : 108,743
+    Kernel Memory      : 96 MB
+
+Detailed Kernel Status:
+-------------------------------------------
+  Kernel Zone Allocation:
+    Zone name         : Kernel_map
+    Zone usage        : 22,345 pages
+    Zone size         : 4096 KB
+    Allocations       : 56,230 objects
+
+  Mutex Information:
+    Mutexes in use    : 18
+    Mutex contention  : 3 (last 10 seconds)
+
+  I/O Status:
+    I/O Threads       : 12
+    I/O operations    : 184/s
+    Read operations   : 92/s
+    Write operations  : 45/s
+
+Application State:
+-------------------------------------------
+  Affected Process     : backboardd
+  Process ID           : 234
+  Process Memory       : 54 MB
+  Thread Count         : 12
+  Open File Descriptors: 67
+
+System Messages Leading to Panic:
+-------------------------------------------
+  - [INFO] Starting panic log process at 2024-10-25 14:35:21
+  - [WARN] Memory allocation at threshold; paging high
+  - [ERROR] TLB exception at 0x0000000000000042
+  - [INFO] Panic triggered by CPU fault at 0xfffffff00abcdef0
+  - [INFO] Dumping backtrace information
+
+-------------------------------------------
+Log saved to /home/user/kernel_panic_diagnostic_log.txt
