@@ -1,22 +1,21 @@
-iPhone Kernel Dump Project
+# iPhone Kernel Dump Project
 
-Overview
-
+# Overview
 This project automates the process of setting up the necessary environment and tools to extract and analyze kernel panic logs from an iPhone. It provides a fully automated setup script that installs dependencies, compiles the required libimobiledevice library, configures udev rules, and captures kernel logs when the iPhone is connected to a Linux system. This project supports Windows, Linux, and macOS for cross-platform compatibility and ease of use.
 
-Repository Structure
-
+# Repository Structure
 main.sh - The main setup script which installs dependencies, configures the environment, and prepares the system for kernel log extraction
 dump.sh - A script that captures and saves kernel logs and device information. Outputs are saved to kernel_panic_log.txt
 iOS kernel panic and network status logs are stored in kernel_panic_log.txt and /var/log/kernel_dump.log for easy access and analysis
-Features
 
+# Features
 Fully automated setup for dependency installation and library compilation (libimobiledevice)
 Cross-platform support for Linux, Windows, and macOS
 Automatically initiates DFU mode when the iPhone is connected, with instructions for extracting kernel logs
 Logging of iOS version, device model, kernel panic information, network status, and system metrics
 Consolidated logging output for efficient troubleshooting and debugging
-Getting Started
+
+# Getting Started
 
 Clone the repository git clone https://github.com/SleepTheGod/iPhone_Dump_Kernel.git cd iPhone_Dump_Kernel
 
