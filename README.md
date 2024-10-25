@@ -149,3 +149,42 @@ System Messages Leading to Panic:
 
 -------------------------------------------
 Log saved to /home/user/kernel_panic_diagnostic_log.txt
+
+
+# iOS SSH Server Setup
+
+This repository provides a script for setting up an SSH server on a jailbroken iOS device.
+
+## Requirements
+
+- A jailbroken iOS device with SSH installed.
+- Modify the script to include your application's bundle ID.
+
+## Usage
+
+1. **Clone the Repository**:
+
+    ```bash
+    git clone https://github.com/SleepTheGod/iPhone_Dump_Kernel.git
+    cd iPhone_Dump_Kernel
+    ```
+
+2. **Make the Script Executable**:
+
+    ```bash
+    chmod +x setup_ssh_server.sh
+    ```
+
+3. **Run the Script**:
+
+    ```bash
+    ./setup_ssh_server.sh
+    ```
+
+   Make sure to replace the placeholder `com.example.yourapp` in the script with your actual app's bundle ID.
+
+## Important Notes
+
+- **Security**: Running an SSH server exposes your device to potential remote access. Ensure you implement strong security practices.
+- Monitor connections to prevent unauthorized access.
+
