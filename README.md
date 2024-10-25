@@ -17,6 +17,19 @@ Consolidated logging output for efficient troubleshooting and debugging
 
 # Getting Started
 
+First do this before anything 
+```bash
+#!/bin/bash
+echo "Your iPhone has been connected."
+echo "Please follow these steps to enter DFU mode:"
+echo "1. Connect your iPhone to your computer."
+echo "2. Turn off your iPhone."
+echo "3. Press and hold the Power button for 3 seconds."
+echo "4. While holding the Power button, press and hold the Volume Down button for 10 seconds."
+echo "5. Release the Power button but continue holding the Volume Down button for another 5 seconds."
+echo "If done correctly, your iPhone screen will be black, and it will be recognized in recovery mode."
+```
+
 Clone the repository git clone https://github.com/SleepTheGod/iPhone_Dump_Kernel.git cd iPhone_Dump_Kernel
 
 Run the setup script ./main.sh This will install necessary dependencies, compile libimobiledevice, set up udev rules, and create the kernel log dump script
