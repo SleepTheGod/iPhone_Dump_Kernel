@@ -41,7 +41,7 @@ Log saved to /home/user/kernel_panic_log.txt
 
 
 
-Example of output
+# Example of output
 
 Kernel Panic Diagnostic Log - Oct 25, 2024
 ===========================================
